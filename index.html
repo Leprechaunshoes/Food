@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Bank Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c5aa0">
+    <meta name="description" content="Find nearby food banks and community food resources">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍽️ Food Bank Finder</h1>
+            <div class="language-selector">
+                <select id="languageSelect" aria-label="Select language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </header>
+
+```
+    <main>
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="addressInput" placeholder="Enter your address or zip code" aria-label="Enter address">
+                <button id="searchBtn" aria-label="Search for food banks">
+                    <span id="searchIcon">🔍</span>
+                    <span id="loadingIcon" class="hidden">⏳</span>
+                </button>
+            </div>
+            
+            <div class="filters">
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="all">All locations</option>
+                    <option value="open">Open now</option>
+                    <option value="opening-soon">Opening soon</option>
+                </select>
+                
+                <select id="distanceFilter" aria-label="Filter by distance">
+                    <option value="25">Within 25 miles</option>
+                    <option value="10">Within 10 miles</option>
+                    <option value="5">Within 5 miles</option>
+                    <option value="1">Within 1 mile</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="view-toggle">
+            <button id="listViewBtn" class="active" aria-label="List view">📋 List</button>
+            <button id="mapViewBtn" aria-label="Map view">🗺️ Map</button>
+        </div>
+
+        <div class="results-section">
+            <div id="resultsHeader" class="results-header hidden">
+                <span id="resultsCount"></span>
+                <div class="navigation-arrows">
+                    <button id="prevBtn" aria-label="Previous result" disabled>← Previous</button>
+                    <span id="currentIndex">1 of 1</span>
+                    <button id="nextBtn" aria-label="Next result" disabled>Next →</button>
+                </div>
+            </div>
+
+            <div id="listView" class="list-view">
+                <div id="resultsContainer"></div>
+            </div>
+
+            <div id="mapView" class="map-view hidden">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <div class="add-location-section">
+            <button id="addLocationBtn" class="add-btn">+ Add Food Resource</button>
+        </div>
+    </main>
+
+    <!-- Add Location Modal -->
+    <div id="addLocationModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Food Resource</h2>
+            <form id="addLocationForm">
+                <div class="form-group">
+                    <label for="resourceName">Name/Description *</label>
+                    <input type="text" id="resourceName" required placeholder="e.g., Community Food Pantry">
+                </div>
+                
+                <div class="form-group">
+                    <label for="resourceAddress">Address *</label>
+                    <input type="text" id="resourceAddress" required placeholder="Full address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="resourceType">Type</label>
+                    <select id="resourceType">
+                        <option value="food-bank">Food Bank</option>
+                        <option value="pantry">Food Pantry</option>
+                        <option value="community">Community Offering</option>
+                        <option value="mobile">Mobile Food Unit</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="resourceHours">Hours</label>
+                    <textarea id="resourceHours" placeholder="e.g., Mon-Fri 9AM-5PM"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="resourcePhone">Phone</label>
+                    <input type="tel" id="resourcePhone" placeholder="Phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="resourceNotes">Additional Notes</label>
+                    <textarea id="resourceNotes" placeholder="Any special requirements, available food types, etc."></textarea>
+                </div>
+                
+                <button type="submit">Add Resource</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="offlineNotice" class="offline-notice hidden">
+        <p>📡 You're offline. Showing cached results.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+```
+
+</body>
+</html>
